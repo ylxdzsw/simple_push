@@ -58,14 +58,13 @@ async function subscribe(worker_registration, public_key_buffer) {
 }
 
 ;(async () => {
-    const worker_registration = await navigator.serviceWorker.register('worker.js')
-
-    if (await Notification.requestPermission() !== 'granted') {
-        throw new Error('Permission not granted for Notification');
-    }
-
     document.getElementById('subscribe').addEventListener('click', async () => {
-        const key = await gen_key()
+        if (await Notification.requestPermission() !== 'granted') {
+            throw new Error('Permission not granted for Notification');
+        }
+
+        const worker_registration = await navigator.serviceWorker.register('worker.js')
+
         const public_key_buffer = public_key_to_buffer({
             x: "iBQjad25VAeYizxjuoaBT-xFp1Isr-RqZ7WXsO-IlVw",
             y: "O7HOr2bL3okliqN1fsjeIZcwIKVvsGFLzbFtJ8Vl7kM"
