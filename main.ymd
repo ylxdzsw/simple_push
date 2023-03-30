@@ -1,0 +1,16 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="ylxdzsw@gmail.com">
+<meta charset="utf-8">
+
+<title>Simple Push</title>
+
+[require](main.less)
+
+<button id="subscribe">Subscribe</button>
+
+<div id="info"></div>
+
+[require](main.js)
+
+[mixin] common.ymd
